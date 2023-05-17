@@ -1,0 +1,92 @@
+﻿@model BankManagementSystemVersionFinal1.Models.Customer
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cin)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cin)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Mail)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Mail)
+        </dd>
+       <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BankBranch.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BankBranch.Name)
+        </dd>
+    </dl>
+</div>
+
+
+
+
+
+<h1>Accounts</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th> Account ID</th>
+            <th>Balance</th>
+            <th>Account Status</th>
+            <th>Type </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in ViewBag.account){
+        <tr>
+            <td>@item.AccountId</td>
+             <td>@item.Balance</td>
+            <td>@item.AccountStatus</td>
+            <td>@((item is CheckingAccount) ? "Checking Account" : "Saving Account")</td>
+
+            <td>
+                <a asp-controller="Account" asp-action="Details" asp-route-id="@item.AccountId">Details</a> 
+            </td>
+            <td>
+                <a asp-controller="Loans" asp-action="Create" asp-route-id="@item.AccountId">Request Loan</a>
+            </td>
+            <td>
+                <a asp-controller="Transfers" asp-action="Create" asp-route-id="@item.AccountId">Transfer</a>
+            </td>
+        </tr>
+ }
+    </tbody>
+</table>
+<div>
+    <a asp-controller="Client" asp-action="Index">Back to List</a>
+</div>

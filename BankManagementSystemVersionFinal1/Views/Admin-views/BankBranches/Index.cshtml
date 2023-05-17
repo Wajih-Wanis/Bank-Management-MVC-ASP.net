@@ -1,0 +1,55 @@
+﻿@model IEnumerable<BankManagementSystemVersionFinal1.Models.BankBranch>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>BankBranches</h1>
+
+<p>
+    <a href="/admin" class="btn btn-light">Go to Admin</a>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BankBalance)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BankBalance)
+            </td>
+            <td>
+                <a href="/admin/branches/details?id=@item.BranchId" class="btn btn-dark">Details</a> |
+                <a href="/admin/branches/edit?id=@item.BranchId" class="btn btn-secondary">Edit</a> |
+                <a href="/admin/branches/delete?id=@item.BranchId" class="btn btn-danger">Delete</a>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,92 @@
+﻿@model BankManagementSystemVersionFinal1.Models.Loan
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+
+<div>
+    <h4>Account Details</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Account.AccountHolder.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model =>model.Account.AccountHolder.Name)
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model =>  model.Account.AccountHolder.Cin)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Account.AccountHolder.Cin)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Account.AccountId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model =>  model.Account.AccountId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <h4>Loan</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.InterstRate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.InterstRate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StartingDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StartingDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EndingDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EndingDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LoanStatus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LoanStatus)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <h4>Transactions</h4>
+<table>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var trans in Model.Transactions)
+        {
+            <tr>
+                <td>@trans.Date</td>
+                <td>@trans.Description</td>
+                <td>@trans.Amount</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

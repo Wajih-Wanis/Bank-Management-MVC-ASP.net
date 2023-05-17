@@ -1,0 +1,36 @@
+﻿@model IEnumerable<BankManagementSystemVersionFinal1.Models.Department>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Departments</h1>
+
+<p>
+    <a href="/admin" class="btn btn-Light">Go to Admin</a>
+    <a href="/admin/departments/create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a asp-action="editDepartment" asp-route-id="@item.DepartmentId" class="btn btn-dark">Edit</a> |
+                <a asp-action="getDepartmentDetails" asp-route-id="@item.DepartmentId" class="btn btn-secondary">Details</a> |
+                <a asp-action="deleteDepartment" asp-route-id="@item.DepartmentId" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,68 @@
+﻿@model BankManagementSystemVersionFinal1.Models.Manager
+
+<link href="~/css/indexemployee.css" rel="stylesheet" />
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1 class="page-heading">Manager Details</h1>
+
+<div class="employee-details">
+    <div class="row">
+        <div class="col">
+            <label class="label">Name:</label>
+            <span class="value">@Model.Name</span>
+        </div>
+        <div class="col">
+            <label class="label">Address:</label>
+            <span class="value">@Model.Address</span>
+        </div>
+        <div class="col">
+            <label class="label">Phone Number:</label>
+            <span class="value">@Model.PhoneNumber</span>
+        </div>
+    </div>
+</div>
+
+<div class="actions">
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.EmployeeId">Edit</a>
+    <a class="btn btn-secondary" asp-action="Details" asp-route-id="@Model.EmployeeId">Details</a>
+</div>
+
+<div class="row">
+    
+<div class="row">
+    <div class="col">
+        <div class="list-section">
+            <h3 class="section-heading">List of Accounts</h3>
+             <form class="form" asp-controller="Account" asp-action="Index">
+                <button class="btn btn-primary" type="submit"> Accounts</button>
+            </form>
+        </div>
+    </div>
+    <div class="col">
+        <div class="list-section">
+            <h3 class="section-heading">List of Customers</h3>
+             <form class="form" asp-controller="Customers" asp-action="Index">
+                <button class="btn btn-primary" type="submit">Customers</button>
+            </form>
+        </div>
+    </div>
+     <div class="col">
+        <div class="list-section">
+            <h3 class="section-heading">List of Transactions</h3>
+             <form class="form" asp-controller="Transactions" asp-action="Index">
+                <button class="btn btn-primary" type="submit">Transactions</button>
+            </form>
+        </div>
+    </div>
+    <div class="col">
+        <div class="list-section">
+            <h3 class="section-heading">List of Loans</h3>
+             <form class="form" asp-controller="Loans" asp-action="Index">
+                <button class="btn btn-primary" type="submit">Loans</button>
+            </form>
+        </div>
+    </div>
+</div>
+

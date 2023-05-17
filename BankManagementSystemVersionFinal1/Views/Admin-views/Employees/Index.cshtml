@@ -1,0 +1,80 @@
+﻿@model IEnumerable<BankManagementSystemVersionFinal1.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Employees</h1>
+
+<p>
+    <a href="/admin" class="btn btn-Light">Go to Admin</a>
+    <a href="/admin/employees/create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                Department
+            </th>
+            <th>
+                Bank Branch
+            </th>
+            <th>
+                Role
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BankBranch.Name)
+            </td>
+            <td>
+                @if (item is BankManagementSystemVersionFinal1.Models.Agent)
+                {
+                    <span>Agent</span>
+                }
+                else if (item is BankManagementSystemVersionFinal1.Models.Manager)
+                {
+                    <span>Manager</span>
+                }
+            </td>
+            <td>
+                <a href="/admin/employees/details?id=@item.EmployeeId" class="btn btn-dark">Details</a> |
+                <a href="/admin/employees/edit?id=@item.EmployeeId" class="btn btn-secondary">Edit</a> |
+                <a href="/admin/employees/delete?id=@item.EmployeeId" class="btn btn-danger">Delete</a>
+            </td>
+
+        </tr>
+        }
+    </tbody>
+</table>

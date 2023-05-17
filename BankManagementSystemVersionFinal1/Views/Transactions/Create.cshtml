@@ -1,0 +1,29 @@
+﻿@model BankManagementSystemVersionFinal1.Models.Transaction
+
+<h2>Create Transaction</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label class="control-label">Account ID</label>
+        <input name="accountId" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label class="control-label">Description</label>
+        <select name="Description" class="form-control">
+            <option value="deposit">Deposit</option>
+            <option value="withdraw">Withdraw</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Amount" class="control-label"></label>
+        <input asp-for="Amount" class="form-control" />
+        <span asp-validation-for="Amount" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index" asp-controller="Account">Back to List</a>
+</div>

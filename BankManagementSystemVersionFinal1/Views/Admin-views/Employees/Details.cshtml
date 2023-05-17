@@ -1,0 +1,55 @@
+﻿@model BankManagementSystemVersionFinal1.Models.Employee
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Mail)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Mail)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+        <dt class="col-sm-2">
+    Bank Branch
+        </dt>
+        <dd class="col-sm-10">
+            <a href="/admin/branches/details?id=@Model.BankBranch.BranchId" target="_blank">@Html.DisplayFor(model => model.BankBranch.Name)</a>
+        </dd>
+        <dt class="col-sm-2">
+            Department
+        </dt>
+        <dd class="col-sm-10">
+            <a href="/admin/departments/details?id=@Model.Department.DepartmentId" target="_blank">@Html.DisplayFor(model => model.Department.Name)</a>
+        </dd>
+        
+            </dl>
+     </div>
+ <div>
+    <a href="/admin/employees/edit?id=@Model?.EmployeeId" class="btn btn-primary">Edit</a> |
+    <a href="/admin/employees" class="btn btn-dark">Back to List</a>
+</div>

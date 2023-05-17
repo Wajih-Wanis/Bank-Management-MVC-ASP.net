@@ -1,0 +1,122 @@
+﻿@model BankManagementSystemVersionFinal1.Models.Account
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+<h2>@Model.AccountHolder.Name - Account Details</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Account ID</dt>
+        <dd class="col-sm-9">@Model.AccountId</dd>
+
+        <dt class="col-sm-3">Account Holder</dt>
+        <dd class="col-sm-9">@Model.AccountHolder.Name</dd>
+
+        <dt class="col-sm-3">Balance</dt>
+        <dd class="col-sm-9">@Model.Balance</dd>
+
+        <dt class="col-sm-3">Account Status</dt>
+        <dd class="col-sm-9">@Model.AccountStatus</dd>
+    </dl>
+</div>
+
+<div>
+    <h3>Transactions</h3>
+    <h2>Deposits</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var deposit in ViewBag.Deposits)
+        {
+            <tr>
+                <td>@deposit.Date</td>
+                <td>@deposit.Amount</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+    <h2>Withdrawls</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var with in ViewBag.Withdrawals)
+        {
+            <tr>
+                <td>@with.Date</td>
+                <td>@with.Amount</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+    <h2>Trnsfers</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Receiver</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tr in ViewBag.transfers)
+        {
+            @if( tr.Receiver.AccountId == Model.AccountId)
+                {
+                    
+                    <tr>
+                    <td>@tr.Date</td>
+                    <td>@tr.Amount</td>
+                    <td>@tr.Sender.AccountHolder.Name</td>
+                    </tr>
+                }
+            else
+            {
+                <tr>
+                <td>@tr.Date</td>
+                <td>@tr.Amount</td>
+                <td>@tr.Receiver.AccountHolder.Name</td>
+                </tr>
+             }
+        }
+    </tbody>
+</table>
+
+
+<h4>Loans</h4>
+<table>
+    <thead>
+        <tr>
+            <th>StartingDate</th>
+            <th>EndingDate</th>
+            <th>Amount</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var loan in ViewBag.loans)
+        {
+            <tr>
+                <td>@loan.StartingDate</td>
+                <td>@loan.EndingDate</td>
+                <td>@loan.Amount</td>
+                <td>@loan.LoanStatus</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+</div>

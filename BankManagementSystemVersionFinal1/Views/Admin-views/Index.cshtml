@@ -1,0 +1,72 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            background-image: url('https://images.pexels.com/photos/1398431/pexels-photo-1398431.jpeg?auto=compress&cs=tinysrgb&w=5000');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .container {
+            margin-top: 150px;
+            text-align: center;
+            color: black;
+            background-color : white;
+        }
+
+        .btn-custom {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hello, Bank Admin!</h1>
+        <p>Welcome to the Admin Dashboard.</p>
+        <div class="row">
+            <div class="col-md-4">
+                <a href="/admin/departments" class="btn btn-dark btn-custom">Departments</a>
+            </div>
+            <div class="col-md-4">
+                <a href="/admin/branches" class="btn btn-dark btn-custom">Branches</a>
+            </div>
+            <div class="col-md-4">
+                <a href="/admin/employees" class="btn btn-dark btn-custom">Employees</a>
+            </div>
+            <div class="col-md-4">
+            <a class="btn btn-dark btn-custom" asp-area="" asp-controller="Account" asp-action="Index">Accounts</a>
+            </div>
+            <div class="col-md-4">
+<a class="btn btn-dark btn-custom" asp-area="" asp-controller="AppRoles" asp-action="Index">Roles</a>
+            </div>
+            <div class="col-md-4">
+<a class="btn btn-dark btn-custom" asp-area="" asp-controller="Customers" asp-action="Index">Customers</a>
+            </div>
+            <div class="col-md-4">
+<a class="btn btn-dark btn-custom" asp-area="" asp-controller="Transactions" asp-action="Index">Transactions</a>
+            </div>
+            <div class="col-md-4">
+<a class="btn btn-dark btn-custom" asp-area="" asp-controller="Managers" asp-action="Index">Managers</a>
+            </div>
+            <div class="col-md-4">
+<a class="btn btn-dark btn-custom" asp-area="" asp-controller="Loans" asp-action="Index">Loans </a>
+            </div>
+            <div class="col-md-4">
+<a class="btn btn-dark btn-custom" asp-area="" asp-controller="Transfers" asp-action="Index">Transfers </a>
+            </div>
+            <div class="col-md-4">
+<a href="/Identity/Account/Register" class="btn btn-dark btn-custom">Register</a>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+</html>

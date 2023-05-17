@@ -1,0 +1,39 @@
+﻿@model BankManagementSystemVersionFinal1.Models.Customer
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link href="~/css/indexemployee.css" rel="stylesheet" />
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1 class="page-heading">Client Details</h1>
+
+<div class="employee-details">
+    <div class="row">
+        <div class="col">
+            <label class="label">Name:</label>
+            <span class="value">@Model.Name</span>
+        </div>
+        <div class="col">
+            <label class="label">CIN:</label>
+            <span class="value">@Model.Cin</span>
+        </div>
+        <div class="col">
+            <label class="label">Address:</label>
+            <span class="value">@Model.Address</span>
+        </div>
+        <div class="col">
+            <label class="label">Phone Number:</label>
+            <span class="value">@Model.PhoneNumber</span>
+        </div>
+    </div>
+</div>
+
+<a asp-controller="Client" asp-action="Details" asp-route-id="@Model.CustomerId">View Account Details</a>
+
+
+
+
